@@ -4,13 +4,9 @@ include('object/users.php');
 $email=trim($_REQUEST['email']);
 $otp=trim($_REQUEST['otp']);
 
-if(empty($email))
+if(empty($otp))
 {
-	$data=array("status"=>201,"message"=>"Please enter email");
-}
-elseif(empty($otp))
-{
-	$data=array("status"=>201,"message"=>"Please enter valid otp !");
+	$data=array("status"=>201,"message"=>"Please enter the otp !");
 }
 else
 {
@@ -22,7 +18,7 @@ else
 	}
 	else
 	{
-		$data=array("status"=>201,"message"=>"Your mail is not verified !");
+		$data=array("status"=>201,"message"=>"Your Entered otp is incorrct !");
 	}
 }
 echo json_encode($data);

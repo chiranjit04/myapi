@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<title>Login Form</title>
+<title>Verify Mail</title>
 <link rel="stylesheet" href="css/boot.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,30 +17,31 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="#" id="form_api" method="post">
-		<h2>Login</h2>
-		<p>Login to your account</p>
+    <form action="#" id="verify" method="post">
+		<h2>Email verification</h2>
+		<p>Verify your email</p>
 		<hr>
+		<?php 
+			$email=base64_decode($_REQUEST['e']);
+		 ?>
+		<div class="form-group">
+			<div class="input-group">
+				<input type="hidden" class="form-control" id="email" name="email" value="<?php echo base64_decode($_REQUEST['e']); ?>">
+			</div>
+        </div>
         
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-				<input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required="required">
-			</div>
-        </div>
-        
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input type="text" class="form-control" id="password" name="password" placeholder="Password" required="required">
+				<input type="text" class="form-control" id="otp" name="otp" placeholder="Please enter mail varification code" required="required">
 			</div>
         </div>
 	
 		<div class="form-group text-center">
-            <button type="button"  id="login" class="btn btn-primary btn-lg">Login</button>
+            <button type="button"  id="verify" class="btn btn-primary btn-lg">Verify</button>
         </div>
     </form>
-	<div class="text-center" style="color: white;">Not yet registered ? <a href="signup_view.php">Signup Here</a></div>
+	
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

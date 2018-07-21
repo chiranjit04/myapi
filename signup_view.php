@@ -12,10 +12,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="apijs/bootstrap.js"></script>
 <link rel="stylesheet" href="css/body.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
 </head>
 <body>
-<div class="signup-form">
+<div class="signup-form"  >
     <form action="#" id="form_api" method="post">
 		<h2>Sign Up</h2>
 		<p>Please fill in this form to create an account!</p>
@@ -57,9 +58,6 @@
 			</div>
         </div>
 	
-        <div class="form-group">
-			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-		</div>
 		<div class="form-group text-center">
             <button type="button"  id="apitest" class="btn btn-primary btn-lg">Sign Up</button>
         </div>
@@ -67,5 +65,7 @@
 	<div class="text-center" style="color: white;">Already have an account? <a href="login_view.php">Login here</a></div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="apijs/api.js"></script>
-</html>                            
+</html>                           

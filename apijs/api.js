@@ -7,6 +7,8 @@ $(document).ready(function(){
 	var email=$("#email").val();
 	var phone=$("#phone").val();
 	var pass=$("#password").val();
+
+
 		if(username!="" && fname!="" && lname!="" && email!="" && phone!="" && pass!="")
 		{
 			$.ajax({
@@ -16,13 +18,27 @@ $(document).ready(function(){
 				"&phone="+phone+"&password="+pass,
 				dataType:"json",
 				success:function(result){
-					alert(result.message);
+					//alert(result);
+					if (result.status==200){
+						//alert(result.message);
+						toastr.success(result.message);
+						setTimeout(function()
+						{
+							window.location.href="verify_view.php?e="+btoa(email); },3000);
+					
+					}
+					else
+					{
+						toastr.error(result.message);
+						//alert(result.message);
+					}
+					
 				}
 			});
 		}
 		else
 		{
-			alert("Please fill all fields");
+			toastr.error("Please fill all fields");
 		}
 	});
 	
@@ -38,15 +54,35 @@ $(document).ready(function(){
 					data:"email="+email+"&password="+pass,
 					dataType:"json",
 					success:function(result){
-						alert(result.message);
+						toastr.success(result.message);
 					}
 
 				});
 			}
 			else
 			{
-				alert("Fill the required field");
+				toastr.error("Fill the required field");
 			}
 
 	});
+
+	$("#verify").on('click',function(){
+		var email=$("#email").val();
+		var otp=$("#otp").val();
+			
+				$.ajax({
+					type:"POST",
+					url:"http://localhost/myapi/verify_email.php",
+					data:"email="+email+"&otp="+otp,
+					dataType:"json",
+					success:function(result){
+						toastr.success(result.message);
+					}
+
+				});
+
+	});
+
+	
 });
+

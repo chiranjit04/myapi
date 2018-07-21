@@ -37,12 +37,12 @@ $mailer->isHTML(true); //Mail body contains HTML tags
 //Check if mail is sent :
 if(!$mailer->send()) {
 //$data['message']= 'Problem sending mail. '. $mailer->ErrorInfo;
-echo "error";
+//echo "error";
 //echo json_encode($data);
 } 
 else {
 //$cmodel->update_client_single_data($data['id'],'sent', 2);
 //echo json_encode($data);
-	echo "success";
+	//echo "success";
 }
 ?>

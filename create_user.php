@@ -41,25 +41,25 @@ else if(empty($password))
 }
 else
 {
-	if($obj1->checkEmail($email)>0)
-	{
-		$data=array("status"=>201,"message"=>"Email already exist!");
-	}
-	else
-		{
-			
-	$response = $obj1->createUser($username,$firstname,$lastname,$email,$phone,$password,$otp);
-	if($response>0)
-			{
-				//if user register then send verification mail
-				$obj1->sendEmail($email,$otp,$username);
-				$data=array("status"=>200,"message"=>"User created successfully");
-			}
-			else
-			{
-				$data=array("status"=>201,"message"=>"User not created!");
-			}
-		}
+if($obj1->checkEmail($email)>0)
+{
+	$data=array("status"=>201,"message"=>"Email already exist!");
+}
+else
+{
+		
+$response = $obj1->createUser($username,$firstname,$lastname,$email,$phone,$password,$otp);
+if($response>0)
+{
+	//if user register then send verification mail
+	$obj1->sendEmail($email,$otp,$username);
+	$data=array("status"=>200,"message"=>"User created successfully");
+}
+else
+{
+	$data=array("status"=>201,"message"=>"User not created!");
+}
+}
 }
 echo json_encode($data);
 ?>

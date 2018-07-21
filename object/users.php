@@ -82,6 +82,8 @@ class Users
 		return $thisUser;
 	}
 
+	
+
 }
 
 $obj1=new Users();
